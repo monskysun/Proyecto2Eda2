@@ -1,5 +1,4 @@
 package proyecto2;
-
 import java.util.Scanner;
 
 public class Pruebas2 {
@@ -15,7 +14,6 @@ public class Pruebas2 {
 	    	Nodo izq = new Nodo(7);
 	    	Nodo der = new Nodo(15);
 	    	ArbolHeap.insert(root,izq);
-	    	
 	    	//root.printHijos();//prueba
 	    	ArbolHeap.insert(root,der);
 	    	
@@ -23,7 +21,6 @@ public class Pruebas2 {
 	    	Nodo nuevo5 = new Nodo(9);
 	    	Nodo nuevo6 = new Nodo(12);
 	    	Nodo nuevo7 = new Nodo(21);
-	    	
 	    	Nodo nuevo8 = new Nodo(5);
 	    	Nodo nuevo9 = new Nodo(6);
 	    	
@@ -41,17 +38,18 @@ public class Pruebas2 {
 	    	der.printHijos();
 	    	nuevo4.printHijos();
 	    	//System.out.println(ArbolHeap.FindLast(root).valor);
-	    	
-	    	
 	    	ArbolHeap.EliminarRaiz();
 	    	System.out.println("Después de la eliminación:");
 	    	root.printHijos();
 	    	izq.printHijos();
 	    	der.printHijos();
 	    	nuevo4.printHijos();
-	    	
 	    	ArbolHeap.EliminarRaiz();
+
 	    	System.out.println("Después de la eliminación 2:");
+	    	
+	    	ArbolHeap.breadthFrist();
+	    	
 	    	root.printHijos();
 	    	izq.printHijos();
 	    	der.printHijos();

@@ -1,12 +1,12 @@
 package proyecto2;
-//by Monse
+import java.util.Scanner;
 /*
+ * by Monse
  * 3 de diciembre 2021
  * EDA 2
  * Proyecto 2 :Áboles
  * 
  * */
-import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner guarda = new Scanner(System.in);
@@ -50,7 +50,6 @@ public class Main {
 						    	 Nodo newNode = new Nodo(value);
 						    	 ArbolHeap.insert(root,newNode);
 						    	 ArbolHeap.breadthFrist();
-						    	 
 								break;
 							}
 				    	 
@@ -63,6 +62,7 @@ public class Main {
 				System.out.println("Raíz eliminada :)");
 				break;
 			case 3:
+				System.out.println("Mostrando árbol: ");
 				ArbolHeap.breadthFrist();
 				break;
 				
