@@ -13,9 +13,17 @@ public class NodoAVL {
     NodoAVL izq;
     NodoAVL der;
     int h;
-    int diferencia;
     int valor;
-
+    
+    public NodoAVL(int valor){
+        this.valor=valor;
+        this.h=0;
+        this.der=null;
+        this.izq=null;
+    }
+    public NodoAVL(){
+        
+    }
     public NodoAVL getIzq() {
         return izq;
     }
@@ -43,25 +51,13 @@ public class NodoAVL {
     public int getH() {
         return h;
     }
-    public int getH(NodoAVL root) {
-        if(root==null){
-            return -99;
-        }else{
-        }
-        return h;
-    }
+    
 
     public void setH(int h) {
         this.h = h;
     }
 
-    public int getDiferencia() {
-        return diferencia;
-    }
-
-    public void setDiferencia(int diferencia) {
-        this.diferencia = diferencia;
-    }
+    
     
    
 }

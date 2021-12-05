@@ -17,10 +17,10 @@ public class ProyectoEda2 {
     public static void main(String[] args) {
         LinkedList<String> p = new LinkedList<>();
         Scanner guarda = new Scanner(System.in);
-        ExpresionTree expArit = new ExpresionTree();
+        //ExpresionTree expArit = new ExpresionTree();
         
         int opcion = 0, opcion2 = 0;
-	p = expArit.leerCad();	
+	//p = expArit.leerCad();	
         /*do {
 
             System.out.println("--------------------------");
