@@ -3,13 +3,17 @@ package main;
 
 import java.util.LinkedList;
 import java.util.Scanner;
-import expresion.ExpresionTree;
+import expresion.*;
+import heap.*;
+import avl.*;
 
 public class main {
     public static void main(String[] args) {
         LinkedList<String> p = new LinkedList<>();
         Scanner guarda = new Scanner(System.in);
         ExpresionTree expArit = new ExpresionTree();
+        Heap heap=new Heap();
+        ArbolAVL arbolAvl = new ArbolAVL();
         
         int opcion = 0, opcion2 = 0;
         do {
@@ -35,24 +39,38 @@ public class main {
                         System.out.println("Elige una opción:\n");
                         opcion2=guarda.nextInt();
                         System.out.println("--------------------------");
+                    switch(opcion2){
+                        case 1:
+                            System.out.println("Valor del nodo a ingresar ");
+                            int val=guarda.nextInt();
+                            arbolAvl.agregar(val);
+                            break;
+                        case 2:
+                            System.out.println("Buscar un nodo ");
+                            int valBus=guarda.nextInt();
+                            arbolAvl.busca(valBus);
+                            break;
+                        case 3:
+                            System.out.println("Nodo a eliminar ");
+                            int valElim=guarda.nextInt();
+                            arbolAvl.elimina(valElim);
+                            break;
+                        case 4:
+                            System.out.println("La impresión del árbol de acuerdo a su recorrido BFS es: \n");
+                            arbolAvl.breadthFrist();
+                            break;
+                        case 5:
+                            System.out.println("Redireccionando... \n");
+                            break;
+                        default:
+                            System.out.println("Opción inválida");
+                        }    
                     }while(opcion2!=5);
+                    
                     break;
                 case 2:
-                    do {
-                        System.out.println("-----------Heap-----------");
-                        System.out.println(""
-                            + "1. Agregar clave\n"
-                            + "2. Eliminar raíz\n"
-                            + "3. Mostrar árbol\n"
-                            + "4. Regresar\n");
-                        System.out.println("Elige una opción:\n");
-                        opcion2=guarda.nextInt();
-                        System.out.println("--------------------------");
-                    }while(opcion2!=4);
+                    heap.submenu();
                     break;
-                    
-                    
-                    
                 case 3:
                     do {
                         System.out.println("- Árbol de Expresión Aritméticas");
@@ -79,15 +97,14 @@ public class main {
                             case 4:
                                 System.out.println("Redireccionando... \n");
                                 break;
+                            default:
+                                System.out.println("Opción inválida");
                         }
                     }while(opcion2!=4);
-                    
                     
                     break;
             }
         }while(opcion!=4);
-        
-        
         System.out.println("Ejecución finalizada");
     }
 }

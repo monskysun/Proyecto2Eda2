@@ -59,7 +59,7 @@ public class ArbolBin {
         }
     }
     public void addOperadores(Nodo select){
-        actual.setValor(select.valor);
+        actual.setValor(select.valorExp);
     }
     
     public void actualizadorPadre(){
@@ -98,7 +98,7 @@ public class ArbolBin {
         return aux;
     }
     protected void visit(Nodo n){
-        if(n.valor!=null)
+        if(n.valorExp!=null)
             System.out.println(n.valor+" ");
         else
             System.out.print("");
@@ -129,7 +129,7 @@ public class ArbolBin {
         }else{
             postorden(nodo.getIzq());
             postorden(nodo.getDer());
-            listaOrd.add(nodo.valor);
+            listaOrd.add(nodo.valorExp);
             
             return null;
         }
