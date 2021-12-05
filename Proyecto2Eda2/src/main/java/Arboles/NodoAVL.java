@@ -12,18 +12,20 @@ package Arboles;
 public class NodoAVL {
     NodoAVL izq;
     NodoAVL der;
-    int h;
+    int h; // Nos ayudará a evaluar la condición de equilibrio
     int valor;
     
+    //Constructor que solo incializa su atributo valor.
     public NodoAVL(int valor){
         this.valor=valor;
         this.h=0;
         this.der=null;
         this.izq=null;
     }
-    public NodoAVL(){
-        
+    public NodoAVL(){ 
     }
+    
+    //Getters y setters de cada atributo
     public NodoAVL getIzq() {
         return izq;
     }

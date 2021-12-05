@@ -244,7 +244,7 @@ public class ArbolAVL {
             return null;
         }
         
-        //Cuando el valor se encuentra a la izquierda del subarbol
+        //Cuando el valor se encuentra a la izquierda del nodo
         if(val<nodo.getValor()){
             nodo.setIzq(remover(val, nodo.getIzq())); 
             if(nodo.getIzq()!=null){
@@ -253,7 +253,11 @@ public class ArbolAVL {
                 HIzq=0;
             }
             
+            //Se realiza la evaluación de la condición de equilibrio. 
+            //Si esta se rompe, se hacen las operaciones necesario para realizar
+            //rotación simple izquierda o rotación doble derecha.
             if(nodo.getDer()!=null && (nodo.getDer().getH() - HIzq >= 2)){
+                //Se obtiene que tipo de rotación será
                 if(nodo.getDer().getDer()!=null){
                     derH= nodo.getDer().getDer().getH();
                 }else{
@@ -272,6 +276,7 @@ public class ArbolAVL {
                 }
             }
         }
+        //Cuando el valor puede que se encunetre a la derecha del nodo
         else if(val>nodo.getValor()){
             nodo.setDer(remover(val, nodo.getDer()));
             if(nodo.getDer()!=null){
@@ -280,12 +285,17 @@ public class ArbolAVL {
                 HDer=0;
             }
             
+            //Se realiza la evaluación de la condición de equilibrio. 
+            //Si esta se rompe, se hacen las operaciones necesario para realizar
+            //rotación simple derecha o rotación doble izquierda.
             if(nodo.getIzq()!=null && (nodo.getIzq().getH() - HDer >= 2)){
+                //Se evalúa que no se vaya a perder algún subárbol al momento de realizar la eliminación
                 if(nodo.getIzq().getIzq()!=null){
                     izqH= nodo.getIzq().getIzq().getH();
                 }else{
                     izqH= 0;
                 }
+                //Se evalúa que no se vaya a perder algún subárbol al momento de realizar la eliminación
                 if(nodo.getIzq().getDer()!=null){
                     derH= nodo.getIzq().getDer().getH();
                 }else{
@@ -302,17 +312,20 @@ public class ArbolAVL {
             }
         }
         
+        //Hasta este punto ya se habrá eliminado el nodo debió haber sido
+        //eliminado.
         else if(nodo.getIzq()!= null){
             nodo.setValor(nodoMax(nodo.getIzq()).getValor());
             remover(nodo.getValor(), nodo.getIzq());
             
             if((nodo.getDer() != null) && (nodo.getDer().getH() - nodo.getIzq().getH() >= 2)){
+                //Se evalúa que no se vaya a perder algún subárbol al momento de realizar la eliminación
                 if(nodo.getDer().getDer()!=null){
                     derH= nodo.getIzq().getDer().getH();
                 }else{
                     derH= 0;
                 }
-                
+                //Se evalúa que no se vaya a perder algún subárbol al momento de realizar la eliminación
                 if(nodo.getDer().getIzq()!=null){
                     izqH= nodo.getDer().getIzq().getH();
                 }else{
@@ -333,6 +346,7 @@ public class ArbolAVL {
                 nodo= nodo.getDer();
         }
         
+        //Se realizan las posibles modificaciones de alturas
         if(nodo != null){
             if(nodo.getIzq()!= null)
                 izqH= nodo.getIzq().getH();
@@ -344,6 +358,8 @@ public class ArbolAVL {
             else
                 derH=0;
             
+            
+            //Obteniendo la altura máxima de los dos nodos hijos.
             if( obtenerH(nodo.getIzq())> obtenerH(nodo.getDer()) ){
                     nodo.setH(obtenerH(nodo.getIzq())+1);
                 }else{
@@ -354,7 +370,8 @@ public class ArbolAVL {
         return nodo;
         
     }
-
+    
+    //Va a devolver el nodo más profundo del lado derecho
     public NodoAVL nodoMax(NodoAVL nodo){
         if( nodo == null )
             return nodo;
