@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 public class ReversePolishNotation {
-    Stack<Integer> pila = new Stack();  //Trabajamos con un objeto de tipo Stack
+    Stack<Double> pila = new Stack();  //Trabajamos con un objeto de tipo Stack
     
     /*Dentro de esté método se realiza el algoritmo para resolver notación polaca inversa, 
     recordando que se debe realizar un  push cuando se encuentre un operando o cuando se realice una operación, 
@@ -19,12 +19,12 @@ public class ReversePolishNotation {
             boolean existeOperador=Utilerias.verifSiOperador(elemAc);
             
             if(existeNum){              //Se valida si el índice actual es un número
-                pila.push(Integer.valueOf(elemAc));         //Al ser un número se almacena en la pila 
+                pila.push(Double.valueOf(elemAc));         //Al ser un número se almacena en la pila 
                 
             }else if(existeOperador){       //Se verifica en caso contrario que sea un operador
-                Integer val2=pila.pop();    //Se extrae y se almacena en 2 variables consecutivas ambos números
-                Integer val1=pila.pop();
-                Integer resultado=0;
+                Double val2=pila.pop();    //Se extrae y se almacena en 2 variables consecutivas ambos números
+                Double val1=pila.pop();
+                Double resultado=0.0;
                 
                 switch(elemAc){             //De acuerdo al operador, se efectía la operación entre ambos valores
                     case "+" -> resultado=val1+val2;

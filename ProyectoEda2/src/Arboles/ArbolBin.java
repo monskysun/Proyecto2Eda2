@@ -99,7 +99,7 @@ public class ArbolBin {
     }
     protected void visit(Nodo n){
         if(n.valorExp!=null)
-            System.out.println(n.valor+" ");
+            System.out.println(n.valorExp+" ");
         else
             System.out.print("");
     }	
@@ -118,6 +118,7 @@ public class ArbolBin {
 		queue.add(r.der);
             }
 	}
+        System.out.println("");
     }
     
     /*Método recursivo que realiza el recorrido postOrden, dentro de cada análisis, se almacena el  nodo correspondiente en la lista*/
